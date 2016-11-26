@@ -1,6 +1,22 @@
 #include <stdio.h>
 /**
- * main - sorts an array usig bubble sort, approximately n^2 time
+ * printarray - prints an array in the standard comma-and-space format
+ * ends with a newline
+ * Return: none
+ */
+void print_array(int *array, int length)
+{
+	int i;
+        for (i = 0; i < length; i++)
+        {
+                if (i != length -1)
+                        printf("%d, ", array[i]);
+                else
+                        printf("%d\n", array[i]);
+        }
+}
+/**
+ * main - sorts an array using bubble sort, approximately n^2 time
  * Iterates through the entire array, then through the array -1, then -2, and so on
  * Swaps integers when int on left > int on right
  * Return: none
@@ -15,13 +31,7 @@ int main(void)
 	int array_length = sizeof(array) / sizeof(int);
 
 	printf("Original array:\n");
-	for (i = 0; i < array_length; i++)
-	{
-		if (i != array_length - 1)
-			printf("%d, ", array[i]);
-		else
-			printf("%d\n", array[i]);
-	}
+	print_array(array, array_length);
 	flag = 0;
 	for (i = 0; i < array_length; i++)
 	{
@@ -43,12 +53,6 @@ int main(void)
 
 	}
 	printf("New array:\n");
-        for (i = 0; i < array_length; i++)
-	{
-                if (i != array_length - 1)
-                        printf("%d, ", array[i]);
-                else
-                        printf("%d\n", array[i]);
-	}
+	print_array(array, array_length);
 	return (0);
 }
